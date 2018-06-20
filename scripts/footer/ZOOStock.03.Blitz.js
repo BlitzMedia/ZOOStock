@@ -18,8 +18,7 @@ function initBlitz() {
   animater();
   setProductQuote();
   setCatNav();
-  checkCustomItem()
-  initAccordions()
+  initAccordions();
 
   console.log('⚡️');
 
