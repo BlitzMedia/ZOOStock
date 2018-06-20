@@ -104,9 +104,10 @@ function initAccordions() {
   const filters = document.querySelector('.customFiltersWrapper');
   filters.append(accordion)
 
-  document.querySelectorAll('.markdown-block h4 + p').forEach(el => {
+  accordion.querySelectorAll('.markdown-block h4 + p').forEach(el => {
     const target = el;
     const triggerer = el.previousSibling.previousSibling;
+
     target.classList.add('accTarget')
     triggerer.classList.add('accTrigger')
     triggerer.onclick = e => target.classList.toggle('accShow')
