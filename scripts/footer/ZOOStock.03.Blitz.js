@@ -1,8 +1,8 @@
 const body = document.body;
-const checkHomepage = () => body.classList.contains('homepage');
-const checkProducts = () => body.classList.contains('collection-type-blog');
-const checkList     = () => body.classList.contains('view-list');
-const checkItem     = () => body.classList.contains('view-item');
+const checkHomepage   = () => body.classList.contains('homepage');
+const checkProducts   = () => body.classList.contains('collection-type-blog');
+const checkList       = () => body.classList.contains('view-list');
+const checkItem       = () => body.classList.contains('view-item');
 
 // interval passed to reveal
 window.sr = ScrollReveal({
@@ -18,6 +18,7 @@ function initBlitz() {
   animater();
   setProductQuote();
   setCatNav();
+  checkCustomItem()
 
   console.log('⚡️');
 
@@ -33,6 +34,9 @@ Functions
 
 */
 
+// function checkCustomItem() {
+//   var nav = document.querySelector('nav.ProductItem-nav')
+// }
 
 function initZOOStockHome() {
   // Get links
@@ -82,6 +86,8 @@ function setProductQuote() {
 function setCatNav() {
   if(!checkProducts() && !checkItem()) return;
   if(checkList()) return;
+  if(!Y.one('.Main--blog-item') && !Y.one('.ProductItem-nav')) return;
+
   const archives = document.querySelectorAll('.BlogItem .sqs-block-archive');
   if(!archives) return;
   const cat = document.querySelector('a.Blog-meta-item-category').textContent.trim();
