@@ -17,7 +17,12 @@
     "url": "https://github.com/BlitzMedia/ZOOStock/issues"
   },
   "homepage": "https://github.com/BlitzMedia/ZOOStock#readme",
-  "dependencies": {
-    "node-minify": "^3.1.0"
+  "dependencies": {},
+  "devDependencies": {
+    "gulp": "^3.9.1",
+    "gulp-babel-minify": "^0.4.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-uglify": "^3.0.0",
+    "pump": "^3.0.0"
   }
 }
