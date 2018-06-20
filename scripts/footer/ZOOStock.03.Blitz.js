@@ -34,15 +34,12 @@ Functions
 
 */
 
-// function checkCustomItem() {
-//   var nav = document.querySelector('nav.ProductItem-nav')
-// }
-
 function initZOOStockHome() {
   // Get links
   var galButtons = document.querySelectorAll('.Index-gallery-item-content-body a')
   // Turn them to buttons
   galButtons.forEach(el => turnToButton(el))
+
   // Set video properly
   window.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
 }

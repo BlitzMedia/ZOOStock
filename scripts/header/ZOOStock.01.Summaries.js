@@ -90,7 +90,7 @@ window.customLazySummaries = {
 
 
 function turnToButton(el) {
-  console.log(document.documentElement.getAttribute('lang'));
+  //console.log(document.documentElement.getAttribute('lang'));
   if (!el) return;
 
   var link = el._node;
