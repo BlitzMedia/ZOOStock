@@ -21,3 +21,12 @@ gulp.task('minifyFooter', () =>
     .pipe(concat('ZOOStock.footer.js'))
     .pipe(gulp.dest('./public'))
 )
+
+gulp.task('minifyHeader', () =>
+  gulp.src('./scripts/header/*.js')
+    .pipe(minify({
+      mangle: { keepClassName: true }
+    }))
+    .pipe(concat('ZOOStock.header.js'))
+    .pipe(gulp.dest('./public'))
+)
