@@ -1,0 +1,23 @@
+{
+  "name": "ZOOStock",
+  "version": "1.0.0",
+  "description": "All of ZOOstock goodness",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BlitzMedia/ZOOStock.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BlitzMedia/ZOOStock/issues"
+  },
+  "homepage": "https://github.com/BlitzMedia/ZOOStock#readme",
+  "dependencies": {
+    "node-minify": "^3.1.0"
+  }
+}
