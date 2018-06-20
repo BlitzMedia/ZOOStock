@@ -103,16 +103,13 @@ function setCatNav() {
 function initAccordions() {
   const accordion = document.querySelector('.Intro .markdown-block');
   const filters = document.querySelector('.customFiltersWrapper');
-
-  if(!accordion || !filters) return;
-
-  filters.append('accordion')
+  filters.append(accordion)
 
   document.querySelectorAll('.markdown-block h4 + p').forEach(el => {
     const target = el;
     const triggerer = el.previousSibling.previousSibling;
-    target.classList.add('accTarget', 'accHidden')
+    target.classList.add('accTarget')
     triggerer.classList.add('accTrigger')
-    triggerer.onclick = e => target.classList.toggle('accHidden')
+    triggerer.onclick = e => target.classList.toggle('accShow')
   })
 }
