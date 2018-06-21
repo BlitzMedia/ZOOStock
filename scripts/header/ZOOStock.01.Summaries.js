@@ -133,7 +133,7 @@ function turnToButton(el) {
   // Quick translate
   if(checkLang() === 'es') link.set('innerHTML', '+ info');
 
-  link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element');
+  link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element', 'zoostock-translatable');
   if(link.classList.contains('summary-read-more-link')) link.classList.remove('summary-read-more-link');
 
   var Button = Y.Node.create('<div class="flex"><div class="sqs-block button-block sqs-block-button"><div class="sqs-block-content"><div class="sqs-block-button-container--left buttoner" data-alignment="left" data-button-size="small"></div></div></div></div>');
@@ -144,6 +144,6 @@ function turnToButton(el) {
 function addQuoteButton(sibling) {
   const getAQuote = window.translations.getAQuote[ZOOStockLang];
   sibling = sibling._node ? sibling._node : sibling;
-  const button = Y.Node.create('<div class="sqs-block button-block sqs-block-button" class="block-getQuote"><div class="sqs-block-content"><div class="sqs-block-button-container--right" data-alignment="right" data-button-size="small"><a href="#get-quote" class="quoter sqs-block-button-element--small sqs-block-button-element">' + getAQuote + '</a></div></div></div>');
+  const button = Y.Node.create('<div class="sqs-block button-block sqs-block-button" class="block-getQuote"><div class="sqs-block-content"><div class="sqs-block-button-container--right" data-alignment="right" data-button-size="small"><a href="#get-quote" class="quoter sqs-block-button-element--small sqs-block-button-element zoostock-translatable">' + getAQuote + '</a></div></div></div>');
   button.appendTo(sibling.parentNode);
 }
