@@ -18,16 +18,19 @@ function initBlitz() {
   animater();
   setProductQuote();
   setCatNav();
-  initAccordions();
 
   console.log('⚡️');
+}
 
+function afterFilters() {
+  initAccordions()
 }
 
 // Init! ⚡️
 window.Squarespace.onInitialize(Y, () => initBlitz());
 Y.on('custom-filter:filter-init', (e) => {
-	console.log(e.customFilter)
+	//console.log(e.customFilter)
+  afterFilters()
 })
 
 /*
@@ -102,8 +105,11 @@ function setCatNav() {
 }
 
 function initAccordions() {
-  const accordion = document.querySelector('.Intro .markdown-block');
-  const filters = document.querySelector('.customFiltersWrapper');
+  const accordion = document.querySelector('.Intro .markdown-block')
+  const filters = document.querySelector('.customFiltersWrapper')
+
+  // If they are not present
+  if(!(filters && accordion)) return;
   filters.append(accordion)
 
   accordion.querySelectorAll('.markdown-block h4 + p').forEach(el => {
