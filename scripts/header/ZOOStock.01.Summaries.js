@@ -1,3 +1,38 @@
+// Translation
+
+window.translations = {
+  lang: '',
+  defaultLang: 'es-ES',
+  langIsDefault: true,
+
+  // Translations
+  readMoreButton: {
+    'es-ES': '+ info',
+    'en-US': 'Read More →'
+  },
+  getAQuote: {
+    'es-ES': 'Presupuesto',
+    'en-US': 'Get a Quote'
+  }
+}
+
+var ZOOStockLang = document.documentElement.getAttribute('lang');
+window.Squarespace.onInitialize(Y, () => setLang());
+
+
+function isLangDefault() {
+  // Will return true if initial state, false if not
+  window.translations.langIsDefault = window.translations.lang === window.translations.defaultLang;
+}
+
+function setLang() {
+  window.translations.lang = document.documentElement.getAttribute('lang');
+}
+
+function checkLang() {
+  return document.documentElement.getAttribute('lang');
+}
+
 function convertAirProductToSQSItem(data, collectionUrl) {//data from AirTable need to be converted for Squarespace and LZS format with top function
   collectionUrl = !!collectionUrl ? collectionUrl : '/';
   if (collectionUrl.charAt(collectionUrl.length - 1) !== '/') {
@@ -90,11 +125,14 @@ window.customLazySummaries = {
 
 
 function turnToButton(el) {
-  //console.log(document.documentElement.getAttribute('lang'));
   if (!el) return;
 
   var link = el._node;
   link = el._node ? el._node : el;
+
+  // Quick translate
+  if(checkLang() === 'es') link.set('innerHTML', '+ info');
+
   link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element');
   if(link.classList.contains('summary-read-more-link')) link.classList.remove('summary-read-more-link');
 
@@ -104,7 +142,8 @@ function turnToButton(el) {
 }
 
 function addQuoteButton(sibling) {
+  const getAQuote = window.translations.getAQuote[ZOOStockLang];
   sibling = sibling._node ? sibling._node : sibling;
-  const button = Y.Node.create('<div class="sqs-block button-block sqs-block-button" class="block-getQuote"><div class="sqs-block-content"><div class="sqs-block-button-container--right" data-alignment="right" data-button-size="small"><a href="#get-quote" class="quoter sqs-block-button-element--small sqs-block-button-element">Get a Quote</a></div></div></div>');
+  const button = Y.Node.create('<div class="sqs-block button-block sqs-block-button" class="block-getQuote"><div class="sqs-block-content"><div class="sqs-block-button-container--right" data-alignment="right" data-button-size="small"><a href="#get-quote" class="quoter sqs-block-button-element--small sqs-block-button-element">' + getAQuote + '</a></div></div></div>');
   button.appendTo(sibling.parentNode);
 }

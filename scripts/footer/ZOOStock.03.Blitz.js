@@ -46,7 +46,7 @@ function initZOOStockHome() {
   galButtons.forEach(el => turnToButton(el))
 
   // Set video properly
-  window.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
+  window.ZOOStock.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
 }
 
 // Other functions
@@ -65,10 +65,25 @@ function animater() {
 
 function setProductQuote() {
   const lightboxButton = document.querySelector('.Footer .lightbox-handle');
+  const translations = window.translations.getAQuote;
 
   if(checkItem()) {
+    // For filtered products
     const getQuoteButton = document.querySelector('#block-getQuote .sqs-block-button-element');
     if(getQuoteButton) getQuoteButton.onclick = e => lightboxButton.click();
+
+    // For catalog
+    document.querySelectorAll('.sqs-block-button-element').forEach(el => {
+      Object.values(translations).forEach(trans => {
+        // Check if it matches any translation
+        if (el.text != trans) return;
+
+        el.onclick = e => {
+          e.stopPropagation();
+          lightboxButton.click()
+        }
+      })
+    })
   }
 
   if(checkList()) {
@@ -76,12 +91,13 @@ function setProductQuote() {
       e.preventDefault();
       lightboxButton.click();
     }, '.quoter')
-    document.querySelectorAll('.filtered .button-block a').forEach(el => {
-      if(el.text === 'Get a Quote') el.onclick = e => {
-        e.preventDefault();
-        lightboxButton.click();
-      }
-    })
+
+    // document.querySelectorAll('.filtered .button-block a').forEach(el => {
+    //   if(el.text === 'Get a Quote') el.onclick = e => {
+    //     e.preventDefault();
+    //     lightboxButton.click();
+    //   }
+    // })
   }
 }
 
