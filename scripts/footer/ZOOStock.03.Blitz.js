@@ -26,7 +26,9 @@ function initBlitz() {
 
 // Init! ⚡️
 window.Squarespace.onInitialize(Y, () => initBlitz());
-
+Y.on('custom-filter:filter-init', (e) => {
+	console.log(e.customFilter)
+})
 
 /*
 
