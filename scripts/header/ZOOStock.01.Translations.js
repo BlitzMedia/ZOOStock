@@ -2,23 +2,27 @@
 
 window.translations = {
   lang: '',
-  defaultLang: 'es-ES',
+  defaultLang: 'es',
   langIsDefault: true,
 
   // Translations
   readMoreButton: {
+    'es': '+ info',
     'es-ES': '+ info',
     'en-US': 'Read More →'
   },
   getAQuote: {
+    'es': 'Presupuesto',
     'es-ES': 'Presupuesto',
     'en-US': 'Get a Quote'
   },
   loadMoreButton: {
+    'es': 'Cargar más',
     'es-ES': 'Cargar más',
     'en-US': 'Load more'
   },
   search: {
+    'es': 'Buscar',
     'es-ES': 'Buscar',
     'en-US': 'Search'
   }
@@ -26,9 +30,8 @@ window.translations = {
 
 var ZOOStockLang = document.documentElement.getAttribute('lang');
 window.Squarespace.onInitialize(Y, () => setLang());
-Y.on('custom-filter:filter-init', () => {
-  translateDatShit()
-})
+Y.on('custom-filter:filter-init', () => translateDatShit())
+bablic.on("translated",() => translateDatShit());
 
 function isLangDefault() {
   // Will return true if initial state, false if not
