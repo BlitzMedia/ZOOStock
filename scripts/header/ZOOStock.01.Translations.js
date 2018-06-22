@@ -63,5 +63,5 @@ function translateButtons() {
   getQuoteButtons.forEach(button => {
     button.innerText = window.translations.getAQuote[window.translations.lang];
   });
-  searchTag.innerText = window.translations.search[window.translations.lang];
+  searchTag.placeholder = window.translations.search[window.translations.lang];
 }
