@@ -80,7 +80,9 @@ function initStrangeElements() {
   // Set lightbox
   window.lightbox = document.querySelector('.Footer .lightbox-handle');
   // Set CustomItem class
-  if( checkCustomItem() ) document.body.classList.add('customItems')
+  if( checkCustomItem() ) document.body.classList.add('customItems');
+  // Set Footer
+  document.querySelector('footer.Footer').id = 'Footer';
 }
 
 // Other functions
