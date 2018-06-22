@@ -100,7 +100,7 @@ function turnToButton(el, lang) {
   var link = el._node;
   link = el._node ? el._node : el;
 
-  link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element', 'zoostock-translatable');
+  link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element', 'zoostock-translatable', 'readMoreButton');
 
   // Set summary buttons
   if(link.classList.contains('summary-read-more-link')) {
