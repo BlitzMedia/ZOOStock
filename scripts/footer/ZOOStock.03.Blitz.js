@@ -3,6 +3,7 @@ const checkHomepage   = () => body.classList.contains('homepage');
 const checkProducts   = () => body.classList.contains('collection-type-blog');
 const checkList       = () => body.classList.contains('view-list');
 const checkItem       = () => body.classList.contains('view-item');
+const checkCustomItem = () => Y.one('.custom-table-block') ? true : false;
 
 // interval passed to reveal
 window.sr = ScrollReveal({
@@ -78,6 +79,8 @@ function initStrangeElements() {
   window.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
   // Set lightbox
   window.lightbox = document.querySelector('.Footer .lightbox-handle');
+  // Set CustomItem class
+  if( checkCustomItem() ) document.body.classList.add('customItems')
 }
 
 // Other functions
