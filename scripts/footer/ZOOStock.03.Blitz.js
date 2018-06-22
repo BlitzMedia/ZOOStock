@@ -104,7 +104,11 @@ function setProductQuote() {
   if(checkItem()) {
     // For filtered products
     const getQuoteButton = document.querySelector('#block-getQuote .sqs-block-button-element');
-    if(getQuoteButton) getQuoteButton.onclick = e => lightboxButton.click();
+    if(getQuoteButton) getQuoteButton.onclick = e => {
+      e.stopPropagation()
+      e.preventDefault()
+      lightboxButton.click()
+    };
 
     // For catalog
     document.querySelectorAll('.sqs-block-button-element').forEach(el => {
@@ -114,6 +118,7 @@ function setProductQuote() {
 
         el.onclick = e => {
           e.stopPropagation();
+          e.preventDefault();
           lightboxButton.click()
         }
       })
@@ -123,15 +128,9 @@ function setProductQuote() {
   if(checkList()) {
     Y.one('body').delegate('click', e => {
       e.preventDefault();
+      e.stopPropagation();
       lightboxButton.click();
     }, '.quoter')
-
-    // document.querySelectorAll('.filtered .button-block a').forEach(el => {
-    //   if(el.text === 'Get a Quote') el.onclick = e => {
-    //     e.preventDefault();
-    //     lightboxButton.click();
-    //   }
-    // })
   }
 }
 
