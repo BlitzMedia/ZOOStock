@@ -14,21 +14,24 @@ window.sr = ScrollReveal({
 
 // INIT
 function initBlitz() {
-  initZOOStockHome()
-  animater();
-  setProductQuote();
-  setCatNav();
+  initStrangeElements()
+  initGalleryButtons()
+  animater()
+  setProductQuote()
+  setCatNav()
 
   console.log('⚡️');
 }
 
 function afterFilters() {
-  initAccordions()
+  setFilteredSections();
+  setFilterQuoteButtons();
+  initAccordions();
 }
 
 // Init! ⚡️
 window.Squarespace.onInitialize(Y, () => initBlitz());
-Y.on('custom-filter:filter-init', (e) => {
+Y.on('custom-filter:filter-init', e => {
 	//console.log(e.customFilter)
   afterFilters()
 })
@@ -39,14 +42,20 @@ Functions
 
 */
 
-function initZOOStockHome() {
+function initGalleryButtons() {
   // Get links
   var galButtons = document.querySelectorAll('.Index-gallery-item-content-body a')
   // Turn them to buttons
   galButtons.forEach(el => turnToButton(el))
 
+
+}
+
+function initStrangeElements() {
   // Set video properly
   window.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
+  // Set lightbox
+  window.lightbox = document.querySelector('.Footer .lightbox-handle');
 }
 
 // Other functions
@@ -136,4 +145,16 @@ function initAccordions() {
     triggerer.classList.add('accTrigger')
     triggerer.onclick = e => target.classList.toggle('accShow')
   })
+}
+
+const setFilteredSections = () => document.body.classList.add('filteredPage')
+
+function setFilterQuoteButtons() {
+  Y.one('body').delegate('click', e => {
+      e.preventDefault();
+      e.stopPropagation();
+
+      // Click that lightbox!
+      window.lightbox.click();
+    }, '.quoter')
 }

@@ -94,14 +94,19 @@ window.customLazySummaries = {
 /* Other functions  */
 
 
-function turnToButton(el) {
+function turnToButton(el, lang) {
   if (!el) return;
 
   var link = el._node;
   link = el._node ? el._node : el;
 
   link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element', 'zoostock-translatable');
-  if(link.classList.contains('summary-read-more-link')) link.classList.remove('summary-read-more-link');
+
+  // Set summary buttons
+  if(link.classList.contains('summary-read-more-link')) {
+    link.classList.remove('summary-read-more-link');
+    if (lang) link.text = window.translations.readMoreButton[lang]
+  }
 
   var Button = Y.Node.create('<div class="flex"><div class="sqs-block button-block sqs-block-button"><div class="sqs-block-content"><div class="sqs-block-button-container--left buttoner" data-alignment="left" data-button-size="small"></div></div></div></div>');
   Button.appendTo(link.parentNode);
