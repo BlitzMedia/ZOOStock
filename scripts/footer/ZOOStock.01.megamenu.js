@@ -39,7 +39,7 @@ const megaBuild = {
       Y.one(`.secondLevel.${slug}`).append(sublist);
     })
   },
-  megaTemplate: '<div class="megaMenu-wrapper"><div class="megaMenu-innerWrapper"><div class="megaMenu"></div><ul class="imageMenu"></ul></div></div>',
+  megaTemplate: '<div class="megaMenu-wrapper"><div class="Header-nav-item--megamenu-close"></div><div class="megaMenu-innerWrapper"><div class="megaMenu"></div><ul class="imageMenu"></ul></div></div>',
 
 }
 
@@ -65,6 +65,7 @@ function buildMegaMenu(records, target) {
 /* Our Init Function */
 
 function initMegaMenu() {
+  initClickers();
   const catalogLink = Y.one('.Header-nav a[href*="/catalog"]');
 
   const airtableURL = 'https://api.airtable.com/v0/app6ponqcBGtYfPYT',
@@ -91,7 +92,25 @@ function initMegaMenu() {
     });
 
     buildMegaMenu(masterRecords, catalogLink);
-  });
+  })
+}
+
+function initClickers() {
+
+  document.querySelector('.Header-nav-item--megamenu').onclick = e => {
+    e.preventDefault()
+    e.stopPropagation()
+    if (document.body.classList.contains('no-touch')) return;
+
+    document.querySelector('.Header-nav-item--megamenu').classList.add('Header-nav-item--megamenu-active')
+  }
+
+  document.querySelector('.Header-nav-item--megamenu-close').onclick = e => {
+    e.preventDefault()
+    e.stopPropagation()
+
+    document.querySelector('.Header-nav-item--megamenu').classList.remove('Header-nav-item--megamenu-active')
+  }
 }
 
 window.Squarespace.onInitialize(Y, () => initMegaMenu());
