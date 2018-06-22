@@ -51,17 +51,21 @@ function translateDatShit() {
 }
 
 function translateButtons() {
-  const loadMoreButton = document.querySelector('.loadMoreButton');
   const readMoreButtons = document.querySelectorAll('.readMoreButton');
   const getQuoteButtons = document.querySelectorAll('.quoter');
   const searchTag = document.querySelector('.search-input');
 
-  loadMoreButton.innerText = window.translations.loadMoreButton[window.translations.lang];
-  readMoreButtons.forEach(button => {
+  if(readMoreButtons) readMoreButtons.forEach(button => {
     button.innerText = window.translations.readMoreButton[window.translations.lang];
   });
-  getQuoteButtons.forEach(button => {
+  if(getQuoteButtons) getQuoteButtons.forEach(button => {
     button.innerText = window.translations.getAQuote[window.translations.lang];
   });
-  searchTag.placeholder = window.translations.search[window.translations.lang];
+
+  if(searchTag) searchTag.placeholder = window.translations.search[window.translations.lang];
+
+  Y.on('domready', () => {
+    const loadMoreButton = document.querySelector('.loadMoreButton');
+    if(loadMoreButton) loadMoreButton.innerText = window.translations.loadMoreButton[window.translations.lang];
+  })
 }
