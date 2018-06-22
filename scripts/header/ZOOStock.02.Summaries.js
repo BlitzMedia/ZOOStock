@@ -1,37 +1,4 @@
-// Translation
-
-window.translations = {
-  lang: '',
-  defaultLang: 'es-ES',
-  langIsDefault: true,
-
-  // Translations
-  readMoreButton: {
-    'es-ES': '+ info',
-    'en-US': 'Read More →'
-  },
-  getAQuote: {
-    'es-ES': 'Presupuesto',
-    'en-US': 'Get a Quote'
-  }
-}
-
-var ZOOStockLang = document.documentElement.getAttribute('lang');
-window.Squarespace.onInitialize(Y, () => setLang());
-
-
-function isLangDefault() {
-  // Will return true if initial state, false if not
-  window.translations.langIsDefault = window.translations.lang === window.translations.defaultLang;
-}
-
-function setLang() {
-  window.translations.lang = document.documentElement.getAttribute('lang');
-}
-
-function checkLang() {
-  return document.documentElement.getAttribute('lang');
-}
+// Summaries init
 
 function convertAirProductToSQSItem(data, collectionUrl) {//data from AirTable need to be converted for Squarespace and LZS format with top function
   collectionUrl = !!collectionUrl ? collectionUrl : '/';
@@ -111,6 +78,9 @@ window.customLazySummaries = {
         link.setAttribute('href',link.getAttribute('href').split('?')[0]+cat.toLowerCase());
       });
 
+      // Quick translate
+      if(checkLang() === 'es') item.one('.summary-read-more-link').set('innerHTML', '+ info');
+
       turnToButton(item.one('.summary-read-more-link'));
       addQuoteButton(item.one('.button-block'))
 
@@ -129,9 +99,6 @@ function turnToButton(el) {
 
   var link = el._node;
   link = el._node ? el._node : el;
-
-  // Quick translate
-  if(checkLang() === 'es') link.set('innerHTML', '+ info');
 
   link.classList.add('sqs-block-button-element--small', 'sqs-block-button-element', 'zoostock-translatable');
   if(link.classList.contains('summary-read-more-link')) link.classList.remove('summary-read-more-link');

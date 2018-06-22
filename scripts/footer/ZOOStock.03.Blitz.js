@@ -46,7 +46,7 @@ function initZOOStockHome() {
   galButtons.forEach(el => turnToButton(el))
 
   // Set video properly
-  window.ZOOStock.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
+  window.vid = document.querySelector('#zoostock-nav .sqs-video-icon');
 }
 
 // Other functions
