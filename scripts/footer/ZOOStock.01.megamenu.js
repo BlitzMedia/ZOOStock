@@ -65,7 +65,7 @@ function buildMegaMenu(records, target) {
 /* Our Init Function */
 
 function initMegaMenu() {
-  initClickers();
+  //initClickers();
   const catalogLink = Y.one('.Header-nav a[href*="/catalog"]');
 
   const airtableURL = 'https://api.airtable.com/v0/app6ponqcBGtYfPYT',
