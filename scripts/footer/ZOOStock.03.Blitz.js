@@ -17,7 +17,9 @@ window.sr = ScrollReveal({
 function initBlitz() {
   initTranslationButtons()
   initStrangeElements()
+  setFilteredItems()
   initGalleryButtons()
+  initCatalog()
   animater()
   setProductQuote()
   setCatNav()
@@ -70,8 +72,6 @@ function initGalleryButtons() {
   var galButtons = document.querySelectorAll('.Index-gallery-item-content-body a')
   // Turn them to buttons
   galButtons.forEach(el => turnToButton(el))
-
-
 }
 
 function initStrangeElements() {
@@ -83,6 +83,23 @@ function initStrangeElements() {
   if( checkCustomItem() ) document.body.classList.add('customItems');
   // Set Footer
   document.querySelector('footer.Footer').id = 'Footer';
+}
+
+function initCatalog() {
+  //if ( !(checkProducts() && checkItem()) ) return;
+
+  document.querySelectorAll('.archive-block-setting-multicolumns').forEach(el => {
+    el.classList.add('archive-loaded')
+  })
+
+  document.querySelectorAll('.Intro .archive-block-setting-multicolumns .archive-group').forEach(el => {
+   var link = el.querySelector('.archive-group-name-link')
+    link.onclick = e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.toggle('is-active')
+    }
+  })
 }
 
 // Other functions
@@ -174,6 +191,9 @@ function initAccordions() {
 }
 
 const setFilteredSections = () => document.body.classList.add('filteredPage')
+const setFilteredItems = () => {
+  if( Y.one('.custom-table-block') ) body.classList.add('filteredItem')
+}
 
 function setFilterQuoteButtons() {
   Y.one('body').delegate('click', e => {
