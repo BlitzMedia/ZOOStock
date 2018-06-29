@@ -173,8 +173,9 @@ function setProductQuote() {
 }
 
 function setCatNav() {
-  if(!checkProducts() && !checkItem()) return;
-  if(checkList()) return;
+  // if(!checkProducts() && !checkItem()) return;
+  // if(checkList()) return;
+  if(!document.body.classList.contains('filteredPage')) return;
   if(!Y.one('.Main--blog-item') && !Y.one('.ProductItem-nav')) return;
 
   const archives = document.querySelectorAll('.BlogItem .sqs-block-archive');
