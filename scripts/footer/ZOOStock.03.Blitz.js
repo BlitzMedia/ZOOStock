@@ -21,6 +21,7 @@ function initBlitz() {
   animater()
   setProductQuote()
   setCatNav()
+  initCatalog()
 
   console.log('⚡️');
 }
@@ -83,6 +84,24 @@ function initStrangeElements() {
   if( checkCustomItem() ) document.body.classList.add('customItems');
   // Set Footer
   document.querySelector('footer.Footer').id = 'Footer';
+  // Set Cisco
+  if( window.location.href.indexOf("cisco") > -1 ) body.classList.add('cisco')
+  if( Y.one('.custom-table-block') ) body.classList.add('filteredItem')
+}
+
+function initCatalog() {
+  //if ( !(checkProducts() && checkItem()) ) return;
+  document.querySelectorAll('.archive-block-setting-multicolumns').forEach(el => {
+    el.classList.add('archive-loaded')
+  })
+  document.querySelectorAll('.Intro .archive-block-setting-multicolumns .archive-group').forEach(el => {
+   var link = el.querySelector('.archive-group-name-link')
+    link.onclick = e => {
+      e.preventDefault();
+      e.stopPropagation();
+      el.classList.toggle('is-active')
+    }
+  })
 }
 
 // Other functions
@@ -177,10 +196,10 @@ const setFilteredSections = () => document.body.classList.add('filteredPage')
 
 function setFilterQuoteButtons() {
   Y.one('body').delegate('click', e => {
-      e.preventDefault();
-      e.stopPropagation();
+    e.preventDefault();
+    e.stopPropagation();
 
-      // Click that lightbox!
-      window.lightbox.click();
-    }, '.quoter')
+    // Click that lightbox!
+    window.lightbox.click();
+  }, '.quoter')
 }
