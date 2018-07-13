@@ -12,7 +12,7 @@ window.customFilterSettings = {
   'targets': [
     {
       // Transceivers
-      container: '#block-yui_3_17_2_1_1529421639296_3852,#block-yui_3_17_2_1_1529504408619_90531,#block-d8affec7143bad61b0a8',
+      container: '#block-yui_3_17_2_1_1529421639296_3852,#block-yui_3_17_2_1_1529504408619_90531,#block-d8affec7143bad61b0a8,#block-a8a3f9cf1d4673ae757f',
       items: '.summary-item',
       settings: {
         performanceMode:true,
@@ -20,6 +20,24 @@ window.customFilterSettings = {
         position: 'left',
         keepDropdownsOpen: false,
         requestAttrWithAjax: false,
+        pagination: {
+          enabled: false,
+          pageSize: 50,
+          place: 'bottom', //place on top or bottom
+          backgroundColor: 'transparent',
+          margin: '0',
+          padding: '0',
+          items: {
+            style: 'square', //square, pillow, circle
+            width: '32px', //navigation item width
+            margin: '12px', //navigatin items margin
+            borderWidth: '2px', //items border width
+            backgroundColor: '#fff', //default background color
+            activeBackgroundColor: '#d62027', //active item backround color
+            color: '#d62027', // default items text color
+            activeColor: '#fff' //active items text color
+          }
+        },
         mobilePanel: { enabled: true },
         isotope: {
           enabled: false,
@@ -105,7 +123,7 @@ window.customFilterSettings = {
         },
         search: {
           positionOrder: 100,
-          text: 'Search',
+          text: 'Buscar',
           searchFunc: function(el) {
             var result = '',
             textContent = '',
@@ -129,6 +147,24 @@ window.customFilterSettings = {
         position: 'left',
         keepDropdownsOpen: false,
         requestAttrWithAjax: false,
+        pagination: {
+          enabled: true,
+          pageSize: 10,
+          place: 'bottom', //place on top or bottom
+          backgroundColor: 'transparent',
+          margin: '0',
+          padding: '0',
+          items: {
+            style: 'square', //square, pillow, circle
+            width: '32px', //navigation item width
+            margin: '12px', //navigatin items margin
+            borderWidth: '2px', //items border width
+            backgroundColor: '#fff', //default background color
+            activeBackgroundColor: '#d62027', //active item backround color
+            color: '#d62027', // default items text color
+            activeColor: '#fff' //active items text color
+          }
+        },
         mobilePanel: { enabled: true },
         isotope: {
           enabled: false,
@@ -231,7 +267,7 @@ window.customFilterSettings = {
         },
         search: {
           positionOrder: 100,
-          text: 'Search',
+          text: 'Buscar',
           searchFunc: function(el) {
             var result = '',
             textContent = '',
@@ -255,6 +291,24 @@ window.customFilterSettings = {
         position: 'left',
         keepDropdownsOpen: false,
         requestAttrWithAjax: false,
+        pagination: {
+          enabled: true,
+          pageSize: 10,
+          place: 'bottom', //place on top or bottom
+          backgroundColor: 'transparent',
+          margin: '0',
+          padding: '0',
+          items: {
+            style: 'square', //square, pillow, circle
+            width: '32px', //navigation item width
+            margin: '12px', //navigatin items margin
+            borderWidth: '2px', //items border width
+            backgroundColor: '#fff', //default background color
+            activeBackgroundColor: '#d62027', //active item backround color
+            color: '#d62027', // default items text color
+            activeColor: '#fff' //active items text color
+          }
+        },
         mobilePanel: { enabled: true },
         isotope: {
           enabled: false,
@@ -318,7 +372,7 @@ window.customFilterSettings = {
         },
         search: {
           positionOrder: 100,
-          text: 'Search',
+          text: 'Buscar',
           searchFunc: function(el) {
             var result = '',
             textContent = '',
@@ -357,8 +411,5 @@ if (window.self !== window.top && window.top.document.querySelector('html.square
 <script>
 (function(w,d,v2){
     w.chaport = { app_id : '5aa7e53bddd47f53f0a966db' };
-
     v2=w.chaport;v2._q=[];v2._l={};v2.q=function(){v2._q.push(arguments)};v2.on=function(e,fn){if(!v2._l[e])v2._l[e]=[];v2._l[e].push(fn)};var s=d.createElement('script');s.type='text/javascript';s.async=true;s.src='https://app.chaport.com/javascripts/insert.js';var ss=d.getElementsByTagName('script')[0];ss.parentNode.insertBefore(s,ss)})(window, document);
 </script>
-
-<script src="//twemoji.maxcdn.com/2/twemoji.min.js?11.0"></script>

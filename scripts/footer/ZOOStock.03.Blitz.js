@@ -23,7 +23,6 @@ function initBlitz() {
   animater()
   setProductQuote()
   setCatNav()
-  initCatalog()
 
   console.log('⚡️');
 }
@@ -94,23 +93,6 @@ function initCatalog() {
   document.querySelectorAll('.archive-block-setting-multicolumns').forEach(el => {
     el.classList.add('archive-loaded')
   })
-  document.querySelectorAll('.Intro .archive-block-setting-multicolumns .archive-group').forEach(el => {
-   var link = el.querySelector('.archive-group-name-link')
-    link.onclick = e => {
-      e.preventDefault();
-      e.stopPropagation();
-      el.classList.toggle('is-active')
-    }
-  })
-}
-
-function initCatalog() {
-  //if ( !(checkProducts() && checkItem()) ) return;
-
-  document.querySelectorAll('.archive-block-setting-multicolumns').forEach(el => {
-    el.classList.add('archive-loaded')
-  })
-
   document.querySelectorAll('.Intro .archive-block-setting-multicolumns .archive-group').forEach(el => {
    var link = el.querySelector('.archive-group-name-link')
     link.onclick = e => {
